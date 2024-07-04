@@ -40,3 +40,30 @@ function generateRightAngleTriangle(levels) {
     }
 }
 generateRightAngleTriangle(5)
+
+// Freerange code
+// You are given a two-digit integer n. Return the sum of its digits.
+
+// Example
+
+// For n = 29, the output should be
+// solution(n) = 11.
+function solution(n) {
+    if(n>=10 && n<=99){
+        const tens = Math.floor(n/10);
+        
+        const ones = Math.floor(n%10);
+        
+        const sum = tens + ones;
+         return sum;
+    }else {
+        throw new Error ("Invalid number");
+    }
+    
+    }
+    try {
+      const result = solution(89); // Change the number to test different cases
+      console.log("The sum of the digits is:", result);
+    } catch (error) {
+      console.log(error.message); // Prints "Invalid number" if n is out of range
+    }
