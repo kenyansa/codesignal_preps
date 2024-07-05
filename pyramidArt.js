@@ -67,3 +67,36 @@ function solution(n) {
     } catch (error) {
       console.log(error.message); // Prints "Invalid number" if n is out of range
     }
+
+    // Grid Printer
+    function outcome(x) {
+        if (x >= Math.pow(10, 4) || x < 1) {
+            return false;
+        }
+    
+        const area = Math.pow(x, 2) + Math.pow((x - 1), 2);
+    
+        // Create a grid to represent the n-interesting polygon
+        const gridSize = 2 * x - 1;
+        const grid = Array.from({ length: gridSize }, () => Array(gridSize).fill(' '));
+    
+        // Fill the grid with the appropriate pattern
+        for (let i = 0; i < gridSize; i++) {
+            for (let j = 0; j < gridSize; j++) {
+                if (Math.abs(i - (x - 1)) + Math.abs(j - (x - 1)) < x) {
+                    grid[i][j] = '#';
+                }
+            }
+        }
+    
+        // Print the grid
+        for (let row of grid) {
+            console.log(row.join(''));
+        }
+    
+        return area;
+    }
+    
+    // Examples:
+    console.log("Area:", outcome(2)); //
+    console.log("Area:", outcome(3));
