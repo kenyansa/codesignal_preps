@@ -20,3 +20,36 @@ const arrSum = array =>
         (sum, num) => sum + (Array.isArray(num) ? arrSum(num) : num * 1),
         0
     );
+
+
+    // second sol
+    function matrixSumOfElements(matrix) {
+        if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+            return 0;
+        }
+        
+        let rows = matrix.length;
+        let cols = matrix[0].length;
+        let totalSum = 0;
+        
+        for (let col = 0; col < cols; col++) {
+            for (let row = 0; row < rows; row++) {
+                if (matrix[row][col] === 0) {
+                    break; // Stop adding rooms below this free room
+                }
+                totalSum += matrix[row][col];
+            }
+        }
+        
+        return totalSum;
+    }
+    
+    // Example usage:
+    const matrix = [
+        [0, 1, 1, 2],
+        [0, 5, 0, 0],
+        [2, 0, 3, 3]
+    ];
+    
+    console.log(matrixSumOfElements(matrix)); // Output: 9
+    
