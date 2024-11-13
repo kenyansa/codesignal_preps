@@ -5,6 +5,8 @@ function encryptString(text) {
         
         // Check if `c` is a lowercase letter and not 'z'
         if (/^[a-y]$/.test(c)) {
+        // alternatively:
+        // if(c >= 'a' && c <= 'y'){
             encrypted += String.fromCharCode(c.charCodeAt(0) + 1);
         }
         // Check if `c` is 'z', and change it to 'a'
@@ -13,6 +15,8 @@ function encryptString(text) {
         }
         // Check if `c` is an uppercase letter and not 'Z'
         else if (/^[A-Y]$/.test(c)) {
+        // alternatively:
+        // if(c >= 'A' && c <= 'Y'){
             encrypted += String.fromCharCode(c.charCodeAt(0) + 1);
         }
         // Check if `c` is 'Z', and change it to 'A'
