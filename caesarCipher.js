@@ -26,3 +26,4 @@ let originalText = "Hello, JavaScript!";
 // The encryptText function call and console.log statement should remain the same as the solution
 let encryptedText = encryptText(originalText);
 console.log(encryptedText);  // Correct output after TODO should be 'Khoor, MdydVfulsw!'
+
