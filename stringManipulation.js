@@ -10,3 +10,21 @@ employeeList.forEach(employee => {
         //
     });
     // TODO: Display the result in format `Name: <name> - Role: <role> - Age: <age> - <Eligible/Not Eligible>`
+
+
+    // Austronaut string manipulation
+    function processAstronautData(data) {
+        let details = data.split(";");
+        
+        details.forEach(detail => {
+            // TODO: Split the detail into astronaut name and planet,
+            //       and strip away the whitespace.
+            const [name, planet] = detail.trim().split("-");
+            
+            // TODO: Print the statement in the format "Astronaut [name] is exploring [planet]."
+            console.log(`"Astronaut ${name} is exploring ${planet}.`) 
+        });
+    }
+    
+    let astronautData = "    Neil-Mars; Buzz-Jupiter; Sally-Venus    ";
+    processAstronautData(astronautData);
