@@ -25,7 +25,7 @@ function solution(nums) {
     nums.forEach(num => {
         const revNum = parseInt(num.toString().split('').reverse().join(''), 10);
         if (numSet.has(revNum)) {
-            result.push([num, revNum]);
+            result.push({num, revNum});
         }
     });
 
