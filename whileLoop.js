@@ -63,3 +63,31 @@ function duplicateNumbers (n) {
     return result;
 }
 console.log(duplicateNumbers(345))
+
+// counting consecutive pairs of digits in a number
+function countingConsecutivePairs(n) {
+    let count = 0;             // To count pairs of consecutive equal digits
+    let previousDigit = -1;    // Start with an invalid digit
+    let consecutiveCount = 0;  // Track how many times the current digit repeats consecutively
+
+    while (n > 0) {
+        let currentDigit = n % 10;  // Extract the last digit
+
+        if (currentDigit === previousDigit) {
+            consecutiveCount++;  // Increment consecutive match count
+        } else {
+            // Add all pairs from the previous group
+            count += Math.max(0, consecutiveCount - 1);
+            consecutiveCount = 1;  // Reset for the new digit
+        }
+
+        previousDigit = currentDigit; // Update the previous digit
+        n = Math.floor(n / 10);       // Remove the last digit
+    }
+
+    // Add pairs from the last group after exiting the loop
+    count += Math.max(0, consecutiveCount - 1);
+
+    return count;
+}
+console.log(countingConsecutivePairs(13345667))
