@@ -45,3 +45,21 @@ function reverseInteger(n) {
     return reversed;
 }
 console.log("Task:", reverseInteger(12345))
+
+// duplicate digits of a number:
+function duplicateNumbers (n) {
+    let result = 0; 
+    let multiplier = 1;
+    while (n > 0) {
+        let digit = n % 10; // Extract the last digit
+        let duplicated = digit * 10 + digit; // Duplicate the digit
+        // Add the duplicated digits to the result at the correct position
+        result += duplicated * multiplier;
+        // Update the multiplier to account for the new digits
+        multiplier *= 100; 
+        n = Math.floor(n / 10); 
+    }
+
+    return result;
+}
+console.log(duplicateNumbers(345))
